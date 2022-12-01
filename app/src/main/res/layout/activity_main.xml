@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.example.doodler.DoodleView
+        android:id="@+id/doodleArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/doodleArea"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/erase"
+            android:onClick="clear"
+            android:text="Clear"
+            android:textSize="10sp"
+            tools:layout_editor_absoluteX="21dp"
+            tools:layout_editor_absoluteY="669dp" />
+
+        <Button
+            android:id="@+id/colorBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="changeColor"
+            android:text="Color"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="669dp" />
+
+        <Button
+            android:id="@+id/sizeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="changeSize"
+            android:text="Size"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="669dp" />
+
+        <Button
+            android:id="@+id/opacityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="changeOpacity"
+            android:text="Opacity"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            tools:layout_editor_absoluteX="41dp"
+            tools:layout_editor_absoluteY="669dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <SeekBar
+        android:id="@+id/colorBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:isScrollContainer="false"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/doodleArea" />
+    <SeekBar
+        android:id="@+id/sizeBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:isScrollContainer="false"
+        android:visibility="gone"
+        android:max="40"
+        android:progress="10"
+        app:layout_constraintBottom_toTopOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/doodleArea" />
+    <SeekBar
+        android:id="@+id/opacityBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:isScrollContainer="false"
+        android:visibility="gone"
+        android:max="255"
+        android:progress="255"
+        app:layout_constraintBottom_toTopOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/doodleArea" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
