@@ -126,6 +126,10 @@ public class MainActivity extends AppCompatActivity {
         doodleScreen.clear();
     }
 
+    public void undo(View view){doodleScreen.undo();}
+
+    public void redo(View view){doodleScreen.redo();}
+
     //toggles color slider
     public void changeColor(View view){
         if (colorBar.getVisibility() == View.VISIBLE)

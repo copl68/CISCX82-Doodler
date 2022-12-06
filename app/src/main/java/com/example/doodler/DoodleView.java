@@ -15,6 +15,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class DoodleView extends View {
 
@@ -27,6 +28,7 @@ public class DoodleView extends View {
     private int color;
     private int size;
     private int opacity;
+    private ArrayList<Stroke> undo_stack = new ArrayList<Stroke>();
     private Bitmap bitmap;
     private Canvas canvas;
     private Paint bitmapPaint = new Paint();
@@ -69,6 +71,22 @@ public class DoodleView extends View {
     public void clear(){
         paths.clear();
         invalidate();
+    }
+
+    public void undo(){
+        if(paths.size() > 0) {
+            Stroke s = paths.remove(paths.size() - 1);
+            undo_stack.add(s);
+            invalidate();
+        }
+    }
+
+    public void redo(){
+        if(undo_stack.size() > 0) {
+            Stroke s = undo_stack.remove(undo_stack.size() - 1);
+            paths.add(s);
+            invalidate();
+        }
     }
 
     @Override
@@ -138,6 +156,7 @@ public class DoodleView extends View {
     // the end position
     private void touchUp() {
         path.lineTo(X, Y);
+        undo_stack.clear();
     }
 
     // the onTouchEvent() method provides us with

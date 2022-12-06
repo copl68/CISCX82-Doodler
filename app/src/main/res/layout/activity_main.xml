@@ -112,4 +112,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/doodleArea" />
 
+    <ImageView
+        android:id="@+id/undoButton"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:onClick="undo"
+        android:scaleType="fitXY"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/undo" />
+
+    <ImageView
+        android:id="@+id/redoButton"
+        android:layout_width="53dp"
+        android:layout_height="45dp"
+        android:onClick="redo"
+        android:scaleType="fitXY"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/redo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
